@@ -7,12 +7,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPickaxe;
@@ -232,6 +235,20 @@ public class BashPackCore
 		itemBurntBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconChestplate, armorMaterialBurntBacon, 0, 1, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_chestplate").setUnlocalizedName("burnt_chestplate");
 		itemBurntBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconLeggings, armorMaterialBurntBacon, 0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_leggings").setUnlocalizedName("burnt_leggings");
 		itemBurntBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconBoots, armorMaterialBurntBacon, 0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_boots").setUnlocalizedName("burnt_boots");
+		
+		
+		//Register blocks.
+		blockRawBacon = new Block(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_raw").setUnlocalizedName("raw_bacon_block");
+		blockSoggyBacon = new Block(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_soggy").setUnlocalizedName("soggy_bacon_block");
+		blockLimpBacon = new Block(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_limp").setUnlocalizedName("limp_bacon_block");
+		blockCrispyBacon = new Block(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_crispy").setUnlocalizedName("crispy_bacon_block");
+		blockBurntBacon = new Block(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_burnt").setUnlocalizedName("burnt_bacon_block");
+		
+		GameRegistry.registerBlock(blockRawBacon, ItemBlock.class, "Raw Bacon Block");
+		GameRegistry.registerBlock(blockSoggyBacon, ItemBlock.class, "Soggy Bacon Block");
+		GameRegistry.registerBlock(blockLimpBacon, ItemBlock.class, "Limp Bacon Block");
+		GameRegistry.registerBlock(blockCrispyBacon, ItemBlock.class, "Crispy Bacon Block");
+		GameRegistry.registerBlock(blockBurntBacon, ItemBlock.class, "Burnt Bacon Block");
 		
 		//Register recipes.
 		GameRegistry.addShapelessRecipe(new ItemStack(itemRawBacon, 3), new Object[]{Item.porkRaw});
@@ -456,6 +473,12 @@ public class BashPackCore
 		LanguageRegistry.addName(itemBurntBaconAxe, "Burnt Bacon Axe");
 		LanguageRegistry.addName(itemBurntBaconShovel, "Burnt Bacon Shovel");
 		LanguageRegistry.addName(itemBurntBaconHoe, "Burnt Bacon Hoe");
+		
+		LanguageRegistry.addName(blockRawBacon, "Raw Bacon Block");
+		LanguageRegistry.addName(blockSoggyBacon, "Soggy Bacon Block");
+		LanguageRegistry.addName(blockLimpBacon, "Limp Bacon Block");
+		LanguageRegistry.addName(blockCrispyBacon, "Crispy Bacon Block");
+		LanguageRegistry.addName(blockBurntBacon, "Burnt Bacon Block");
 	}
 	
 	/**
