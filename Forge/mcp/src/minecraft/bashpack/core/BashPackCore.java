@@ -238,11 +238,11 @@ public class BashPackCore
 		
 		
 		//Register blocks.
-		blockRawBacon = new Block(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_raw").setUnlocalizedName("raw_bacon_block");
-		blockSoggyBacon = new Block(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_soggy").setUnlocalizedName("soggy_bacon_block");
-		blockLimpBacon = new Block(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_limp").setUnlocalizedName("limp_bacon_block");
-		blockCrispyBacon = new Block(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_crispy").setUnlocalizedName("crispy_bacon_block");
-		blockBurntBacon = new Block(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_burnt").setUnlocalizedName("burnt_bacon_block");
+		blockRawBacon = new Block(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_raw").setUnlocalizedName("raw_bacon_block").setResistance(2.5F).setHardness(1.0F);
+		blockSoggyBacon = new Block(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_soggy").setUnlocalizedName("soggy_bacon_block").setResistance(2.5F).setHardness(1.0F);
+		blockLimpBacon = new Block(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_limp").setUnlocalizedName("limp_bacon_block").setResistance(2.5F).setHardness(1.0F);
+		blockCrispyBacon = new Block(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_crispy").setUnlocalizedName("crispy_bacon_block").setResistance(2.5F).setHardness(1.0F);
+		blockBurntBacon = new Block(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_burnt").setUnlocalizedName("burnt_bacon_block").setResistance(2.5F).setHardness(1.0F);
 		
 		GameRegistry.registerBlock(blockRawBacon, ItemBlock.class, "Raw Bacon Block");
 		GameRegistry.registerBlock(blockSoggyBacon, ItemBlock.class, "Soggy Bacon Block");
@@ -434,6 +434,28 @@ public class BashPackCore
 		GameRegistry.addRecipe(new ItemStack(itemBurntBaconBoots, 1), new Object[]
 				{
 			"B B", "B B", 'B', itemBurntBacon
+				});
+		
+		//Add block recipes.
+		GameRegistry.addRecipe(new ItemStack(blockRawBacon, 1), new Object[]
+				{
+			"BBB", "BBB", "BBB", 'B', itemRawBacon
+				});
+		GameRegistry.addRecipe(new ItemStack(blockSoggyBacon, 1), new Object[]
+				{
+			"BBB", "BBB", "BBB", 'B', itemSoggyBacon
+				});
+		GameRegistry.addRecipe(new ItemStack(blockLimpBacon, 1), new Object[]
+				{
+			"BBB", "BBB", "BBB", 'B', itemLimpBacon
+				});
+		GameRegistry.addRecipe(new ItemStack(blockCrispyBacon, 1), new Object[]
+				{
+			"BBB", "BBB", "BBB", 'B', itemCrispyBacon
+				});
+		GameRegistry.addRecipe(new ItemStack(blockBurntBacon, 1), new Object[]
+				{
+			"BBB", "BBB", "BBB", 'B', itemBurntBacon
 				});
 		
 		//Add smeltings.
