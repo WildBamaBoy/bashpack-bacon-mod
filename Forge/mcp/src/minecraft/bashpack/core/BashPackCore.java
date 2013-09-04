@@ -542,10 +542,10 @@ public class BashPackCore
 		PrintWriter stackTraceWriter = new PrintWriter(stackTrace);
 		e.printStackTrace(stackTraceWriter);
 
-		logger.log(Level.FINER, "Minecraft Comes Alive: An exception occurred.\n" + stackTrace.toString());
-		System.out.println("Minecraft Comes Alive: An exception occurred.\n" + stackTrace.toString());
+		logger.log(Level.FINER, "BashPack: An exception occurred.\n" + stackTrace.toString());
+		System.out.println("BashPack: An exception occurred.\n" + stackTrace.toString());
 
-		CrashReport crashReport = new CrashReport("MCA: " + description, e);
+		CrashReport crashReport = new CrashReport("BashPack: " + description, e);
 		net.minecraft.client.Minecraft.getMinecraft().crashed(crashReport);
 	}
 }
