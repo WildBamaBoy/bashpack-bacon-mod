@@ -11,9 +11,6 @@ package bashpack.core.io;
 
 import java.io.Serializable;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-
 /**
  * Contains the fields used by the mod properties manager.
  */
