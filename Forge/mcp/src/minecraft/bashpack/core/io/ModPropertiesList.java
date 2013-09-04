@@ -19,35 +19,36 @@ import net.minecraft.item.ItemArmor;
  */
 public class ModPropertiesList implements Serializable
 {	
-	public int itemID_RawBacon= 13667;
+	public int itemID_RawBacon= 13660;
+	public int itemID_SoggyBacon= 13661;
+	public int itemID_LimpBacon= 13662;
+	public int itemID_CrispyBacon= 13663;
+	public int itemID_BurntBacon= 13664;
+	
 	public int itemID_RawBaconSword= 13668;
 	public int itemID_RawBaconPickaxe= 13669;
 	public int itemID_RawBaconAxe= 13670;
 	public int itemID_RawBaconShovel= 13671;
 	public int itemID_RawBaconHoe= 13672;
 	
-	public int itemID_SoggyBacon= 13673;
 	public int itemID_SoggyBaconSword= 13674;
 	public int itemID_SoggyBaconPickaxe= 13675;
 	public int itemID_SoggyBaconAxe= 13676;
 	public int itemID_SoggyBaconShovel= 13677;
 	public int itemID_SoggyBaconHoe= 13678;
 	
-	public int itemID_LimpBacon= 13679;
 	public int itemID_LimpBaconSword= 13680;
 	public int itemID_LimpBaconPickaxe= 13681;
 	public int itemID_LimpBaconAxe= 13682;
 	public int itemID_LimpBaconShovel= 13683;
 	public int itemID_LimpBaconHoe= 13684;
-	
-	public int itemID_CrispyBacon= 13685;
+
 	public int itemID_CrispyBaconSword= 13686;
 	public int itemID_CrispyBaconPickaxe= 13687;
 	public int itemID_CrispyBaconAxe= 13688;
 	public int itemID_CrispyBaconShovel= 13689;
 	public int itemID_CrispyBaconHoe= 13690;
 	
-	public int itemID_BurntBacon= 13691;
 	public int itemID_BurntBaconSword= 13692;
 	public int itemID_BurntBaconPickaxe= 13693;
 	public int itemID_BurntBaconAxe= 13694;

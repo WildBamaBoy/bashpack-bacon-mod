@@ -149,9 +149,13 @@ public class BashPackCore
 		//Load external data and register things.
 		modPropertiesManager = new ModPropertiesManager();
 		
-		//Register item used for icon.
-		itemRawBacon = new ItemFood(modPropertiesManager.modProperties.itemID_RawBacon, 3, 0.3F, true).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:bacon_raw");
-
+		//Register food first.
+		itemRawBacon = new ItemFood(modPropertiesManager.modProperties.itemID_RawBacon, 1, 0.3F, true).func_111206_d("bashpack:bacon_raw").setUnlocalizedName("rawbacon");
+		itemSoggyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_SoggyBacon, 2, 0.6F, true).func_111206_d("bashpack:bacon_soggy").setUnlocalizedName("soggybacon");
+		itemLimpBacon = new ItemFood(modPropertiesManager.modProperties.itemID_LimpBacon, 4, 0.8F, true).func_111206_d("bashpack:bacon_limp").setUnlocalizedName("limpbacon");
+		itemCrispyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_CrispyBacon, 8, 1.2F, true).func_111206_d("bashpack:bacon_crispy").setUnlocalizedName("crispybacon");
+		itemBurntBacon = new ItemFood(modPropertiesManager.modProperties.itemID_BurntBacon, 1, 0.1F, true).func_111206_d("bashpack:bacon_burnt").setUnlocalizedName("burntbacon");
+		
 		//Register creative tab.
 		tabBashPackBacon = new CreativeTabs("tabBashPack")
 		{
@@ -163,37 +167,45 @@ public class BashPackCore
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBashPack", "BashPack Bacon Mod");
 		
 		//Register items and blocks.
-		itemRawBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_RawBaconSword, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon);
-		itemRawBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_RawBaconPickaxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon);
-		itemRawBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_RawBaconAxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon);
-		itemRawBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_RawBaconShovel, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon);
-		itemRawBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_RawBaconHoe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon);
-		itemSoggyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_SoggyBacon, 4, 0.6F, true).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:bacon_soggy");
-		itemSoggyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_SoggyBaconSword, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon);
-		itemSoggyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_SoggyBaconPickaxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon);
-		itemSoggyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_SoggyBaconAxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon);
-		itemSoggyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_SoggyBaconShovel, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon);
-		itemSoggyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_SoggyBaconHoe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon);
-		itemLimpBacon = new ItemFood(modPropertiesManager.modProperties.itemID_LimpBacon, 5, 0.8F, true).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:bacon_limp");
-		itemLimpBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_LimpBaconSword, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon);
-		itemLimpBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_LimpBaconPickaxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon);
-		itemLimpBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_LimpBaconAxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon);
-		itemLimpBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_LimpBaconShovel, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon);
-		itemLimpBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_LimpBaconHoe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon);
-		itemCrispyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_CrispyBacon, 10, 1.2F, true).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:bacon_crispy");
-		itemCrispyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_CrispyBaconSword, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon);
-		itemCrispyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_CrispyBaconPickaxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon);
-		itemCrispyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_CrispyBaconAxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon);
-		itemCrispyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_CrispyBaconShovel, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon);
-		itemCrispyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_CrispyBaconHoe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon);
-		itemBurntBacon = new ItemFood(modPropertiesManager.modProperties.itemID_BurntBacon, 1, 0.1F, true).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:bacon_burnt");
-		itemBurntBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_BurntBaconSword, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon);
-		itemBurntBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_BurntBaconPickaxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon);
-		itemBurntBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_BurntBaconAxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon);
-		itemBurntBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_BurntBaconShovel, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon);
-		itemBurntBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_BurntBaconHoe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon);
+		itemRawBacon = itemRawBacon.setCreativeTab(tabBashPackBacon);
+		itemSoggyBacon = itemSoggyBacon.setCreativeTab(tabBashPackBacon);
+		itemLimpBacon = itemLimpBacon.setCreativeTab(tabBashPackBacon);
+		itemCrispyBacon = itemCrispyBacon.setCreativeTab(tabBashPackBacon);
+		itemBurntBacon = itemBurntBacon.setCreativeTab(tabBashPackBacon);
+		
+		itemRawBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_RawBaconSword, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_sword").setUnlocalizedName("raw_sword");
+		itemRawBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_RawBaconPickaxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_pickaxe").setUnlocalizedName("raw_pickaxe");
+		itemRawBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_RawBaconAxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_axe").setUnlocalizedName("raw_axe");
+		itemRawBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_RawBaconShovel, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_shovel").setUnlocalizedName("raw_shovel");
+		itemRawBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_RawBaconHoe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_hoe").setUnlocalizedName("raw_hoe");
+
+		itemSoggyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_SoggyBaconSword, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_sword").setUnlocalizedName("soggy_sword");
+		itemSoggyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_SoggyBaconPickaxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_pickaxe").setUnlocalizedName("soggy_pickaxe");
+		itemSoggyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_SoggyBaconAxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_axe").setUnlocalizedName("soggy_axe");
+		itemSoggyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_SoggyBaconShovel, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_shovel").setUnlocalizedName("soggy_shovel");
+		itemSoggyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_SoggyBaconHoe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_hoe").setUnlocalizedName("soggy_hoe");
+		
+		itemLimpBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_LimpBaconSword, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_sword").setUnlocalizedName("limp_sword");
+		itemLimpBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_LimpBaconPickaxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_pickaxe").setUnlocalizedName("limp_pickaxe");
+		itemLimpBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_LimpBaconAxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_axe").setUnlocalizedName("limp_axe");
+		itemLimpBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_LimpBaconShovel, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_shovel").setUnlocalizedName("limp_shovel");
+		itemLimpBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_LimpBaconHoe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_hoe").setUnlocalizedName("limp_hoe");
+		
+		itemCrispyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_CrispyBaconSword, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_sword").setUnlocalizedName("crispy_sword");
+		itemCrispyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_CrispyBaconPickaxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_pickaxe").setUnlocalizedName("crispy_pickaxe");
+		itemCrispyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_CrispyBaconAxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_axe").setUnlocalizedName("crispy_axe");
+		itemCrispyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_CrispyBaconShovel, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_shovel").setUnlocalizedName("crispy_shovel");
+		itemCrispyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_CrispyBaconHoe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_hoe").setUnlocalizedName("crispy_hoe");
+		
+		itemBurntBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_BurntBaconSword, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_sword").setUnlocalizedName("burnt_sword");
+		itemBurntBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_BurntBaconPickaxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_pickaxe").setUnlocalizedName("burnt_pickaxe");
+		itemBurntBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_BurntBaconAxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_axe").setUnlocalizedName("burnt_axe");
+		itemBurntBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_BurntBaconShovel, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_shovel").setUnlocalizedName("burnt_shovel");
+		itemBurntBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_BurntBaconHoe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_hoe").setUnlocalizedName("burnt_hoe");
 		
 		//Register recipes.
+		GameRegistry.addShapelessRecipe(new ItemStack(itemRawBacon, 3), new Object[]{Item.porkRaw});
+		
 		GameRegistry.addRecipe(new ItemStack(itemRawBaconSword, 1), new Object[]
 				{
 			" B ", " B ", " S ", 'B', itemRawBacon, 'S', Item.stick
@@ -294,6 +306,44 @@ public class BashPackCore
 				{
 			"BB ", " S ", " S ", 'B', itemBurntBacon, 'S', Item.stick
 				});
+		
+		//Add smeltings.
+		GameRegistry.addSmelting(itemRawBacon.itemID, new ItemStack(itemSoggyBacon, 1), 0.2F);
+		GameRegistry.addSmelting(itemSoggyBacon.itemID, new ItemStack(itemLimpBacon, 1), 0.4F);
+		GameRegistry.addSmelting(itemLimpBacon.itemID, new ItemStack(itemCrispyBacon, 1), 0.7F);
+		GameRegistry.addSmelting(itemCrispyBacon.itemID, new ItemStack(itemBurntBacon, 1), 0.0F);
+		
+		LanguageRegistry.addName(itemRawBacon, "Raw Bacon");
+		LanguageRegistry.addName(itemSoggyBacon, "Soggy Bacon");
+		LanguageRegistry.addName(itemLimpBacon, "Limp Bacon");
+		LanguageRegistry.addName(itemCrispyBacon, "Crispy Bacon");
+		LanguageRegistry.addName(itemBurntBacon, "Burnt Bacon");
+		
+		LanguageRegistry.addName(itemRawBaconSword, "Raw Bacon Sword");
+		LanguageRegistry.addName(itemRawBaconPickaxe, "Raw Bacon Pickaxe");
+		LanguageRegistry.addName(itemRawBaconAxe, "Raw Bacon Axe");
+		LanguageRegistry.addName(itemRawBaconShovel, "Raw Bacon Shovel");
+		LanguageRegistry.addName(itemRawBaconHoe, "Raw Bacon Hoe");
+		LanguageRegistry.addName(itemSoggyBaconSword, "Soggy Bacon Sword");
+		LanguageRegistry.addName(itemSoggyBaconPickaxe, "Soggy Bacon Pickaxe");
+		LanguageRegistry.addName(itemSoggyBaconAxe, "Soggy Bacon Axe");
+		LanguageRegistry.addName(itemSoggyBaconShovel, "Soggy Bacon Shovel");
+		LanguageRegistry.addName(itemSoggyBaconHoe, "Soggy Bacon Hoe");
+		LanguageRegistry.addName(itemLimpBaconSword, "Limp Bacon Sword");
+		LanguageRegistry.addName(itemLimpBaconPickaxe, "Limp Bacon Pickaxe");
+		LanguageRegistry.addName(itemLimpBaconAxe, "Limp Bacon Axe");
+		LanguageRegistry.addName(itemLimpBaconShovel, "Limp Bacon Shovel");
+		LanguageRegistry.addName(itemLimpBaconHoe, "Limp Bacon Hoe");
+		LanguageRegistry.addName(itemCrispyBaconSword, "Crispy Bacon Sword");
+		LanguageRegistry.addName(itemCrispyBaconPickaxe, "Crispy Bacon Pickaxe");
+		LanguageRegistry.addName(itemCrispyBaconAxe, "Crispy Bacon Axe");
+		LanguageRegistry.addName(itemCrispyBaconShovel, "Crispy Bacon Shovel");
+		LanguageRegistry.addName(itemCrispyBaconHoe, "Crispy Bacon Hoe");
+		LanguageRegistry.addName(itemBurntBaconSword, "Burnt Bacon Sword");
+		LanguageRegistry.addName(itemBurntBaconPickaxe, "Burnt Bacon Pickaxe");
+		LanguageRegistry.addName(itemBurntBaconAxe, "Burnt Bacon Axe");
+		LanguageRegistry.addName(itemBurntBaconShovel, "Burnt Bacon Shovel");
+		LanguageRegistry.addName(itemBurntBaconHoe, "Burnt Bacon Hoe");
 	}
 	
 	/**
