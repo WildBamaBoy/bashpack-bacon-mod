@@ -1,0 +1,56 @@
+*.class
+*.docx
+*.doc
+*.zip
+*.bat
+*.cmd
+*.pyc
+*.py
+*.txt
+*.sh
+*.properties
+*.lzma
+*.cfg
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Folders #
+Build/*
+Submissions/*
+Forge/client/*
+Forge/common/*
+Forge/fml/*
+Forge/patches/*
+Forge/mcp/bin/*
+Forge/mcp/conf/*
+Forge/mcp/docs/*
+Forge/mcp/eclipse/*
+Forge/mcp/jars/*
+Forge/mcp/lib/*
+Forge/mcp/logs/*
+Forge/mcp/modsrc/*
+Forge/mcp/reobf/*
+Forge/mcp/runtime/*
+Forge/mcp/src/minecraft/cpw/*
+Forge/mcp/src/minecraft/ibxm/*
+Forge/mcp/src/minecraft/net/*
+Forge/mcp/src/minecraft/paulscode/*
+Forge/mcp/temp/*
+
+# Files #
+Forge/mcp/src/minecraft/forge_logo.png
+Forge/mcp/src/minecraft/Start.java
+Forge/mcp/CHANGELOG
+Forge/mcp/src/minecraft/mcpmod.info
+Forge/mcp/src/minecraft/mcp.png
+
+# Special #
+!/Crowdin/Build/*.properties
+!/Assemble.py
+!/Master.properties
+!/Forge/mcp/getchangedsrc.bat
+!/Forge/mcp/recompile.bat
+!/Forge/mcp/reobfuscate.bat
