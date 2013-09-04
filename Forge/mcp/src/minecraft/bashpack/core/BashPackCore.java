@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
@@ -132,6 +131,7 @@ public class BashPackCore
 	public Block blockLimpBacon;
 	public Block blockCrispyBacon;
 	public Block blockBurntBacon;
+	public Block blockBone;
 	
 	private Logger logger = FMLLog.getLogger();
 	public String runningDirectory = "";
@@ -211,44 +211,45 @@ public class BashPackCore
 		itemBurntBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_BurntBaconHoe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_hoe").setUnlocalizedName("burnt_hoe");
 		
 		//Register bacon armor.
-		itemRawBaconHelmet 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconHelmet, armorMaterialRawBacon, 0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_helmet").setUnlocalizedName("raw_helmet");
-		itemRawBaconChestplate 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconChestplate, armorMaterialRawBacon, 0, 1, 2, 0.2F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_chestplate").setUnlocalizedName("raw_chestplate");
-		itemRawBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconLeggings, armorMaterialRawBacon, 0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_leggings").setUnlocalizedName("raw_leggings");
-		itemRawBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconBoots, armorMaterialRawBacon, 0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_boots").setUnlocalizedName("raw_boots");
+		itemRawBaconHelmet 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconHelmet, armorMaterialRawBacon, "raw", 0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_helmet").setUnlocalizedName("raw_helmet");
+		itemRawBaconChestplate 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconChestplate, armorMaterialRawBacon, "raw", 0, 1, 2, 0.2F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_chestplate").setUnlocalizedName("raw_chestplate");
+		itemRawBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconLeggings, armorMaterialRawBacon, "raw", 0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_leggings").setUnlocalizedName("raw_leggings");
+		itemRawBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconBoots, armorMaterialRawBacon, "raw", 0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:raw_boots").setUnlocalizedName("raw_boots");
 		
-		itemSoggyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconHelmet, armorMaterialSoggyBacon, 0, 0, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_helmet").setUnlocalizedName("soggy_helmet");
-		itemSoggyBaconChestplate	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconChestplate, armorMaterialSoggyBacon, 0, 1, 3, 0.4F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_chestplate").setUnlocalizedName("soggy_chestplate");
-		itemSoggyBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconLeggings, armorMaterialSoggyBacon, 0, 2, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_leggings").setUnlocalizedName("soggy_leggings");
-		itemSoggyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconBoots, armorMaterialSoggyBacon, 0, 3, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_boots").setUnlocalizedName("soggy_boots");
+		itemSoggyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconHelmet, armorMaterialSoggyBacon, "soggy", 0, 0, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_helmet").setUnlocalizedName("soggy_helmet");
+		itemSoggyBaconChestplate	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconChestplate, armorMaterialSoggyBacon, "soggy", 0, 1, 3, 0.4F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_chestplate").setUnlocalizedName("soggy_chestplate");
+		itemSoggyBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconLeggings, armorMaterialSoggyBacon, "soggy", 0, 2, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_leggings").setUnlocalizedName("soggy_leggings");
+		itemSoggyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconBoots, armorMaterialSoggyBacon, "soggy", 0, 3, 2, 0.3F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:soggy_boots").setUnlocalizedName("soggy_boots");
 		
-		itemLimpBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconHelmet, armorMaterialLimpBacon, 0, 0, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_helmet").setUnlocalizedName("limp_helmet");
-		itemLimpBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconChestplate, armorMaterialLimpBacon, 0, 1, 5, 0.6F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_chestplate").setUnlocalizedName("limp_chestplate");
-		itemLimpBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconLeggings, armorMaterialLimpBacon, 0, 2, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_leggings").setUnlocalizedName("limp_leggings");
-		itemLimpBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconBoots, armorMaterialLimpBacon, 0, 3, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_boots").setUnlocalizedName("limp_boots");
+		itemLimpBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconHelmet, armorMaterialLimpBacon, "limp", 0, 0, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_helmet").setUnlocalizedName("limp_helmet");
+		itemLimpBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconChestplate, armorMaterialLimpBacon, "limp", 0, 1, 5, 0.6F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_chestplate").setUnlocalizedName("limp_chestplate");
+		itemLimpBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconLeggings, armorMaterialLimpBacon, "limp", 0, 2, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_leggings").setUnlocalizedName("limp_leggings");
+		itemLimpBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconBoots, armorMaterialLimpBacon, "limp", 0, 3, 4, 0.5F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:limp_boots").setUnlocalizedName("limp_boots");
 		
-		itemCrispyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconHelmet, armorMaterialCrispyBacon, 0, 0, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_helmet").setUnlocalizedName("crispy_helmet");
-		itemCrispyBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconChestplate, armorMaterialCrispyBacon, 0, 1, 9, 0.9F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_chestplate").setUnlocalizedName("crispy_chestplate");
-		itemCrispyBaconLeggings 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconLeggings, armorMaterialCrispyBacon, 0, 2, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_leggings").setUnlocalizedName("crispy_leggings");
-		itemCrispyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconBoots, armorMaterialCrispyBacon, 0, 3, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_boots").setUnlocalizedName("crispy_boots");
+		itemCrispyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconHelmet, armorMaterialCrispyBacon, "crispy", 0, 0, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_helmet").setUnlocalizedName("crispy_helmet");
+		itemCrispyBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconChestplate, armorMaterialCrispyBacon, "crispy", 0, 1, 9, 0.9F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_chestplate").setUnlocalizedName("crispy_chestplate");
+		itemCrispyBaconLeggings 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconLeggings, armorMaterialCrispyBacon, "crispy", 0, 2, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_leggings").setUnlocalizedName("crispy_leggings");
+		itemCrispyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconBoots, armorMaterialCrispyBacon, "crispy", 0, 3, 8, 0.7F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:crispy_boots").setUnlocalizedName("crispy_boots");
 		
-		itemBurntBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconHelmet, armorMaterialBurntBacon, 0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_helmet").setUnlocalizedName("burnt_helmet");
-		itemBurntBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconChestplate, armorMaterialBurntBacon, 0, 1, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_chestplate").setUnlocalizedName("burnt_chestplate");
-		itemBurntBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconLeggings, armorMaterialBurntBacon, 0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_leggings").setUnlocalizedName("burnt_leggings");
-		itemBurntBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconBoots, armorMaterialBurntBacon, 0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_boots").setUnlocalizedName("burnt_boots");
-		
-		
+		itemBurntBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconHelmet, armorMaterialBurntBacon, "burnt", 0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_helmet").setUnlocalizedName("burnt_helmet");
+		itemBurntBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconChestplate, armorMaterialBurntBacon, "burnt", 0, 1, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_chestplate").setUnlocalizedName("burnt_chestplate");
+		itemBurntBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconLeggings, armorMaterialBurntBacon, "burnt", 0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_leggings").setUnlocalizedName("burnt_leggings");
+		itemBurntBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconBoots, armorMaterialBurntBacon, "burnt", 0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).func_111206_d("bashpack:burnt_boots").setUnlocalizedName("burnt_boots");
+
 		//Register blocks.
 		blockRawBacon = new Block(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_raw").setUnlocalizedName("raw_bacon_block").setResistance(2.5F).setHardness(1.0F);
 		blockSoggyBacon = new Block(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_soggy").setUnlocalizedName("soggy_bacon_block").setResistance(2.5F).setHardness(1.0F);
 		blockLimpBacon = new Block(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_limp").setUnlocalizedName("limp_bacon_block").setResistance(2.5F).setHardness(1.0F);
 		blockCrispyBacon = new Block(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_crispy").setUnlocalizedName("crispy_bacon_block").setResistance(2.5F).setHardness(1.0F);
 		blockBurntBacon = new Block(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bacon_burnt").setUnlocalizedName("burnt_bacon_block").setResistance(2.5F).setHardness(1.0F);
+		blockBone = new Block(modPropertiesManager.modProperties.blockID_Bone, Material.rock).setCreativeTab(tabBashPackBacon).func_111022_d("bashpack:bone").setUnlocalizedName("bone").setResistance(10.0F).setHardness(1.5F).setStepSound(Block.soundStoneFootstep);
 		
 		GameRegistry.registerBlock(blockRawBacon, ItemBlock.class, "Raw Bacon Block");
 		GameRegistry.registerBlock(blockSoggyBacon, ItemBlock.class, "Soggy Bacon Block");
 		GameRegistry.registerBlock(blockLimpBacon, ItemBlock.class, "Limp Bacon Block");
 		GameRegistry.registerBlock(blockCrispyBacon, ItemBlock.class, "Crispy Bacon Block");
 		GameRegistry.registerBlock(blockBurntBacon, ItemBlock.class, "Burnt Bacon Block");
+		GameRegistry.registerBlock(blockBone, ItemBlock.class, "Bone Block");
 		
 		//Register recipes.
 		GameRegistry.addShapelessRecipe(new ItemStack(itemRawBacon, 3), new Object[]{Item.porkRaw});
@@ -437,6 +438,12 @@ public class BashPackCore
 				});
 		
 		//Add block recipes.
+		GameRegistry.addShapelessRecipe(new ItemStack(itemRawBacon, 9), new Object[]{blockRawBacon});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemSoggyBacon, 9), new Object[]{blockSoggyBacon});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemLimpBacon, 9), new Object[]{blockLimpBacon});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemCrispyBacon, 9), new Object[]{blockCrispyBacon});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemBurntBacon, 9), new Object[]{blockBurntBacon});
+		
 		GameRegistry.addRecipe(new ItemStack(blockRawBacon, 1), new Object[]
 				{
 			"BBB", "BBB", "BBB", 'B', itemRawBacon
@@ -501,6 +508,7 @@ public class BashPackCore
 		LanguageRegistry.addName(blockLimpBacon, "Limp Bacon Block");
 		LanguageRegistry.addName(blockCrispyBacon, "Crispy Bacon Block");
 		LanguageRegistry.addName(blockBurntBacon, "Burnt Bacon Block");
+		LanguageRegistry.addName(blockBone, "Bone Block");
 	}
 	
 	/**

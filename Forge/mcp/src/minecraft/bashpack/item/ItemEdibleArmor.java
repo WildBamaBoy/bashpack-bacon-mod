@@ -1,5 +1,6 @@
 package bashpack.item;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumArmorMaterial;
@@ -13,12 +14,23 @@ public class ItemEdibleArmor extends ItemArmor
     private final int healAmount;
     private final float saturationModifier;
     private boolean alwaysEdible = false;
-
-	public ItemEdibleArmor(int id, EnumArmorMaterial armorMaterial, int renderIndex, int armorType, int healAmount, float saturationModifier)
+    private String textureName;
+    
+	public ItemEdibleArmor(int id, EnumArmorMaterial armorMaterial, String textureName, int renderIndex, int armorType, int healAmount, float saturationModifier)
 	{
 		super(id, armorMaterial, renderIndex, armorType);
 		this.healAmount = healAmount;
 		this.saturationModifier = saturationModifier;
+		
+		if (armorType == 2)
+		{
+			this.textureName = "bashpack:textures/armor/" + textureName + "_layer_2.png";
+		}
+		
+		else
+		{
+			this.textureName = "bashpack:textures/armor/" + textureName + "_layer_1.png";
+		}
 	}
 	
 	@Override
@@ -43,6 +55,7 @@ public class ItemEdibleArmor extends ItemArmor
     {
         --itemStack.stackSize;
         world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+        entityPlayer.getFoodStats().addStats(healAmount, saturationModifier);
         return itemStack;
     }
     
@@ -51,4 +64,10 @@ public class ItemEdibleArmor extends ItemArmor
     {
         return 32;
     }
+	
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
+	{
+		return textureName;
+	}
 }
