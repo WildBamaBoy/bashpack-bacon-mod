@@ -16,21 +16,11 @@ public class ItemEdibleArmor extends ItemArmor
     private boolean alwaysEdible = false;
     private String textureName;
     
-	public ItemEdibleArmor(int id, EnumArmorMaterial armorMaterial, String textureName, int renderIndex, int armorType, int healAmount, float saturationModifier)
+	public ItemEdibleArmor(int id, EnumArmorMaterial armorMaterial, int renderIndex, int armorType, int healAmount, float saturationModifier)
 	{
 		super(id, armorMaterial, renderIndex, armorType);
 		this.healAmount = healAmount;
 		this.saturationModifier = saturationModifier;
-		
-		if (armorType == 2)
-		{
-			this.textureName = "bashpack:textures/armor/" + textureName + "_layer_2.png";
-		}
-		
-		else
-		{
-			this.textureName = "bashpack:textures/armor/" + textureName + "_layer_1.png";
-		}
 	}
 	
 	@Override
