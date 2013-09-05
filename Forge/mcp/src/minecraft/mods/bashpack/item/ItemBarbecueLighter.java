@@ -1,6 +1,7 @@
 package mods.bashpack.item;
 
 import mods.bashpack.core.BashPackCore;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -58,10 +59,8 @@ public class ItemBarbecueLighter extends Item
 		return true;
 	}
 	
-
-	@SideOnly(Side.CLIENT)
-    protected String func_111208_A() 
+	public void registerIcons(IconRegister iconRegister)
 	{
-		return "bashpack:barbecuelighter";
+		this.itemIcon = iconRegister.registerIcon("bashpack:barbecuelighter");
 	}
 }

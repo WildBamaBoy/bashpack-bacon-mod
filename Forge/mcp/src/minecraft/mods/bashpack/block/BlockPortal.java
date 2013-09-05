@@ -6,6 +6,7 @@ import mods.bashpack.core.BashPackCore;
 import mods.bashpack.world.TeleporterBashurverse;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
@@ -318,5 +319,10 @@ public class BlockPortal extends BlockBreakable
 	public int idPicked(World par1World, int par2, int par3, int par4)
 	{
 		return 0;
+	}
+	
+	public void registerIcons(IconRegister iconRegister)
+	{
+		this.blockIcon = iconRegister.registerIcon("portal");
 	}
 }

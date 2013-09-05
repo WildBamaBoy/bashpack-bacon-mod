@@ -6,11 +6,18 @@ import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import mods.bashpack.block.BlockAssetBypass;
 import mods.bashpack.block.BlockBarbecueFire;
 import mods.bashpack.block.BlockPortal;
 import mods.bashpack.core.forge.CommonProxy;
 import mods.bashpack.core.io.ModPropertiesManager;
 import mods.bashpack.entity.EntityGiantPig;
+import mods.bashpack.item.ItemAssetBypassAxe;
+import mods.bashpack.item.ItemAssetBypassFood;
+import mods.bashpack.item.ItemAssetBypassHoe;
+import mods.bashpack.item.ItemAssetBypassPickaxe;
+import mods.bashpack.item.ItemAssetBypassShovel;
+import mods.bashpack.item.ItemAssetBypassSword;
 import mods.bashpack.item.ItemBarbecueLighter;
 import mods.bashpack.item.ItemEdibleArmor;
 import mods.bashpack.world.WorldProviderBashurverse;
@@ -176,11 +183,11 @@ public class BashPackCore
 		modPropertiesManager = new ModPropertiesManager();
 
 		//Register food first.
-		itemRawBacon = new ItemFood(modPropertiesManager.modProperties.itemID_RawBacon, 1, 0.3F, true).setUnlocalizedName("rawbacon");
-		itemSoggyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_SoggyBacon, 2, 0.6F, true).setUnlocalizedName("soggybacon");
-		itemLimpBacon = new ItemFood(modPropertiesManager.modProperties.itemID_LimpBacon, 4, 0.8F, true).setUnlocalizedName("limpbacon");
-		itemCrispyBacon = new ItemFood(modPropertiesManager.modProperties.itemID_CrispyBacon, 8, 1.2F, true).setUnlocalizedName("crispybacon");
-		itemBurntBacon = new ItemFood(modPropertiesManager.modProperties.itemID_BurntBacon, 1, 0.1F, true).setUnlocalizedName("burntbacon");
+		itemRawBacon = new ItemAssetBypassFood(modPropertiesManager.modProperties.itemID_RawBacon, 1, 0.3F, true).func_111206_d("bashpack:bacon_raw").setUnlocalizedName("rawbacon");
+		itemSoggyBacon = new ItemAssetBypassFood(modPropertiesManager.modProperties.itemID_SoggyBacon, 2, 0.6F, true).func_111206_d("bashpack:bacon_soggy").setUnlocalizedName("soggybacon");
+		itemLimpBacon = new ItemAssetBypassFood(modPropertiesManager.modProperties.itemID_LimpBacon, 4, 0.8F, true).func_111206_d("bashpack:bacon_limp").setUnlocalizedName("limpbacon");
+		itemCrispyBacon = new ItemAssetBypassFood(modPropertiesManager.modProperties.itemID_CrispyBacon, 8, 1.2F, true).func_111206_d("bashpack:bacon_crispy").setUnlocalizedName("crispybacon");
+		itemBurntBacon = new ItemAssetBypassFood(modPropertiesManager.modProperties.itemID_BurntBacon, 1, 0.1F, true).func_111206_d("bashpack:bacon_burnt").setUnlocalizedName("burntbacon");
 
 		//Register creative tab.
 		tabBashPackBacon = new CreativeTabs("tabBashPack")
@@ -199,72 +206,72 @@ public class BashPackCore
 		itemCrispyBacon = itemCrispyBacon.setCreativeTab(tabBashPackBacon);
 		itemBurntBacon = itemBurntBacon.setCreativeTab(tabBashPackBacon);
 
-		itemRawBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_RawBaconSword, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("sword");
-		itemRawBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_RawBaconPickaxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("pickaxe");
-		itemRawBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_RawBaconAxe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("axe");
-		itemRawBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_RawBaconShovel, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("shovel");
-		itemRawBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_RawBaconHoe, toolMaterialRawBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("hoe");
+		itemRawBaconSword = new ItemAssetBypassSword(modPropertiesManager.modProperties.itemID_RawBaconSword, toolMaterialRawBacon).func_111206_d("bashpack:raw_sword").setUnlocalizedName("raw_sword").setCreativeTab(tabBashPackBacon);
+		itemRawBaconPickaxe = new ItemAssetBypassPickaxe(modPropertiesManager.modProperties.itemID_RawBaconPickaxe, toolMaterialRawBacon).func_111206_d("bashpack:raw_pickaxe").setUnlocalizedName("raw_pickaxe").setCreativeTab(tabBashPackBacon);
+		itemRawBaconAxe = new ItemAssetBypassAxe(modPropertiesManager.modProperties.itemID_RawBaconAxe, toolMaterialRawBacon).func_111206_d("bashpack:raw_axe").setUnlocalizedName("raw_axe").setCreativeTab(tabBashPackBacon);
+		itemRawBaconShovel = new ItemAssetBypassShovel(modPropertiesManager.modProperties.itemID_RawBaconShovel, toolMaterialRawBacon).func_111206_d("bashpack:raw_shovel").setUnlocalizedName("raw_shovel").setCreativeTab(tabBashPackBacon);
+		itemRawBaconHoe = new ItemAssetBypassHoe(modPropertiesManager.modProperties.itemID_RawBaconHoe, toolMaterialRawBacon).func_111206_d("bashpack:raw_hoe").setUnlocalizedName("raw_hoe").setCreativeTab(tabBashPackBacon);
 
-		itemSoggyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_SoggyBaconSword, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("sword");
-		itemSoggyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_SoggyBaconPickaxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("pickaxe");
-		itemSoggyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_SoggyBaconAxe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("axe");
-		itemSoggyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_SoggyBaconShovel, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("shovel");
-		itemSoggyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_SoggyBaconHoe, toolMaterialSoggyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("hoe");
+		itemSoggyBaconSword = new ItemAssetBypassSword(modPropertiesManager.modProperties.itemID_SoggyBaconSword, toolMaterialSoggyBacon).func_111206_d("bashpack:soggy_sword").setUnlocalizedName("soggy_sword").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconPickaxe = new ItemAssetBypassPickaxe(modPropertiesManager.modProperties.itemID_SoggyBaconPickaxe, toolMaterialSoggyBacon).func_111206_d("bashpack:soggy_pickaxe").setUnlocalizedName("soggy_pickaxe").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconAxe = new ItemAssetBypassAxe(modPropertiesManager.modProperties.itemID_SoggyBaconAxe, toolMaterialSoggyBacon).func_111206_d("bashpack:soggy_axe").setUnlocalizedName("soggy_axe").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconShovel = new ItemAssetBypassShovel(modPropertiesManager.modProperties.itemID_SoggyBaconShovel, toolMaterialSoggyBacon).func_111206_d("bashpack:soggy_shovel").setUnlocalizedName("soggy_shovel").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconHoe = new ItemAssetBypassHoe(modPropertiesManager.modProperties.itemID_SoggyBaconHoe, toolMaterialSoggyBacon).func_111206_d("bashpack:soggy_hoe").setUnlocalizedName("soggy_hoe").setCreativeTab(tabBashPackBacon);
 
-		itemLimpBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_LimpBaconSword, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_sword");
-		itemLimpBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_LimpBaconPickaxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_pickaxe");
-		itemLimpBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_LimpBaconAxe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_axe");
-		itemLimpBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_LimpBaconShovel, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_shovel");
-		itemLimpBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_LimpBaconHoe, toolMaterialLimpBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_hoe");
+		itemLimpBaconSword = new ItemAssetBypassSword(modPropertiesManager.modProperties.itemID_LimpBaconSword, toolMaterialLimpBacon).func_111206_d("bashpack:limp_sword").setUnlocalizedName("limp_sword").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconPickaxe = new ItemAssetBypassPickaxe(modPropertiesManager.modProperties.itemID_LimpBaconPickaxe, toolMaterialLimpBacon).func_111206_d("bashpack:limp_pickaxe").setUnlocalizedName("limp_pickaxe").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconAxe = new ItemAssetBypassAxe(modPropertiesManager.modProperties.itemID_LimpBaconAxe, toolMaterialLimpBacon).func_111206_d("bashpack:limp_axe").setUnlocalizedName("limp_axe").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconShovel = new ItemAssetBypassShovel(modPropertiesManager.modProperties.itemID_LimpBaconShovel, toolMaterialLimpBacon).func_111206_d("bashpack:limp_shovel").setUnlocalizedName("limp_shovel").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconHoe = new ItemAssetBypassHoe(modPropertiesManager.modProperties.itemID_LimpBaconHoe, toolMaterialLimpBacon).func_111206_d("bashpack:limp_hoe").setUnlocalizedName("limp_hoe").setCreativeTab(tabBashPackBacon);
 
-		itemCrispyBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_CrispyBaconSword, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("sword");
-		itemCrispyBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_CrispyBaconPickaxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("pickaxe");
-		itemCrispyBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_CrispyBaconAxe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("axe");
-		itemCrispyBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_CrispyBaconShovel, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("shovel");
-		itemCrispyBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_CrispyBaconHoe, toolMaterialCrispyBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("hoe");
+		itemCrispyBaconSword = new ItemAssetBypassSword(modPropertiesManager.modProperties.itemID_CrispyBaconSword, toolMaterialCrispyBacon).func_111206_d("bashpack:crispy_sword").setUnlocalizedName("crispy_sword").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconPickaxe = new ItemAssetBypassPickaxe(modPropertiesManager.modProperties.itemID_CrispyBaconPickaxe, toolMaterialCrispyBacon).func_111206_d("bashpack:crispy_pickaxe").setUnlocalizedName("crispy_pickaxe").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconAxe = new ItemAssetBypassAxe(modPropertiesManager.modProperties.itemID_CrispyBaconAxe, toolMaterialCrispyBacon).func_111206_d("bashpack:crispy_axe").setUnlocalizedName("crispy_axe").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconShovel = new ItemAssetBypassShovel(modPropertiesManager.modProperties.itemID_CrispyBaconShovel, toolMaterialCrispyBacon).func_111206_d("bashpack:crispy_shovel").setUnlocalizedName("crispy_shovel").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconHoe = new ItemAssetBypassHoe(modPropertiesManager.modProperties.itemID_CrispyBaconHoe, toolMaterialCrispyBacon).func_111206_d("bashpack:crispy_hoe").setUnlocalizedName("crispy_hoe").setCreativeTab(tabBashPackBacon);
 
-		itemBurntBaconSword = new ItemSword(modPropertiesManager.modProperties.itemID_BurntBaconSword, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("sword");
-		itemBurntBaconPickaxe = new ItemPickaxe(modPropertiesManager.modProperties.itemID_BurntBaconPickaxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("pickaxe");
-		itemBurntBaconAxe = new ItemAxe(modPropertiesManager.modProperties.itemID_BurntBaconAxe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("axe");
-		itemBurntBaconShovel = new ItemSpade(modPropertiesManager.modProperties.itemID_BurntBaconShovel, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("shovel");
-		itemBurntBaconHoe = new ItemHoe(modPropertiesManager.modProperties.itemID_BurntBaconHoe, toolMaterialBurntBacon).setCreativeTab(tabBashPackBacon).setUnlocalizedName("hoe");
+		itemBurntBaconSword = new ItemAssetBypassSword(modPropertiesManager.modProperties.itemID_BurntBaconSword, toolMaterialBurntBacon).func_111206_d("bashpack:burnt_sword").setUnlocalizedName("burnt_sword").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconPickaxe = new ItemAssetBypassPickaxe(modPropertiesManager.modProperties.itemID_BurntBaconPickaxe, toolMaterialBurntBacon).func_111206_d("bashpack:burnt_pickaxe").setUnlocalizedName("burnt_pickaxe").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconAxe = new ItemAssetBypassAxe(modPropertiesManager.modProperties.itemID_BurntBaconAxe, toolMaterialBurntBacon).func_111206_d("bashpack:burnt_axe").setUnlocalizedName("burnt_axe").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconShovel = new ItemAssetBypassShovel(modPropertiesManager.modProperties.itemID_BurntBaconShovel, toolMaterialBurntBacon).func_111206_d("bashpack:burnt_shovel").setUnlocalizedName("burnt_shovel").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconHoe = new ItemAssetBypassHoe(modPropertiesManager.modProperties.itemID_BurntBaconHoe, toolMaterialBurntBacon).func_111206_d("bashpack:burnt_hoe").setUnlocalizedName("burnt_hoe").setCreativeTab(tabBashPackBacon);
 
 		//Register bacon armor.
-		itemRawBaconHelmet 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconHelmet, armorMaterialRawBacon,  0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("helmet");
-		itemRawBaconChestplate 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconChestplate, armorMaterialRawBacon,  0, 1, 2, 0.2F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("chestplate");
-		itemRawBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconLeggings, armorMaterialRawBacon,  0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("leggings");
-		itemRawBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconBoots, armorMaterialRawBacon,  0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("boots");
+		itemRawBaconHelmet 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconHelmet, armorMaterialRawBacon, "raw", 0, 0, 1, 0.1F).func_111206_d("bashpack:raw_helmet").setUnlocalizedName("raw_helmet").setCreativeTab(tabBashPackBacon);
+		itemRawBaconChestplate 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconChestplate, armorMaterialRawBacon, "raw", 0, 1, 2, 0.2F).func_111206_d("bashpack:raw_chestplate").setUnlocalizedName("raw_chestplate").setCreativeTab(tabBashPackBacon);
+		itemRawBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconLeggings, armorMaterialRawBacon, "raw", 0, 2, 1, 0.1F).func_111206_d("bashpack:raw_leggings").setUnlocalizedName("raw_leggings").setCreativeTab(tabBashPackBacon);
+		itemRawBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_RawBaconBoots, armorMaterialRawBacon, "raw", 0, 3, 1, 0.1F).func_111206_d("bashpack:raw_boots").setUnlocalizedName("raw_boots").setCreativeTab(tabBashPackBacon);
 
-		itemSoggyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconHelmet, armorMaterialSoggyBacon,  0, 0, 2, 0.3F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("helmet");
-		itemSoggyBaconChestplate	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconChestplate, armorMaterialSoggyBacon,  0, 1, 3, 0.4F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("chestplate");
-		itemSoggyBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconLeggings, armorMaterialSoggyBacon,  0, 2, 2, 0.3F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("leggings");
-		itemSoggyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconBoots, armorMaterialSoggyBacon,  0, 3, 2, 0.3F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("boots");
+		itemSoggyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconHelmet, armorMaterialSoggyBacon, "soggy", 0, 0, 2, 0.3F).func_111206_d("bashpack:soggy_helmet").setUnlocalizedName("soggy_helmet").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconChestplate	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconChestplate, armorMaterialSoggyBacon, "soggy", 0, 1, 3, 0.4F).func_111206_d("bashpack:soggy_chestplate").setUnlocalizedName("soggy_chestplate").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconLeggings, armorMaterialSoggyBacon, "soggy", 0, 2, 2, 0.3F).func_111206_d("bashpack:soggy_leggings").setUnlocalizedName("soggy_leggings").setCreativeTab(tabBashPackBacon);
+		itemSoggyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_SoggyBaconBoots, armorMaterialSoggyBacon, "soggy", 0, 3, 2, 0.3F).func_111206_d("bashpack:soggy_boots").setUnlocalizedName("soggy_boots").setCreativeTab(tabBashPackBacon);
 
-		itemLimpBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconHelmet, armorMaterialLimpBacon,  0, 0, 4, 0.5F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_helmet");
-		itemLimpBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconChestplate, armorMaterialLimpBacon,  0, 1, 5, 0.6F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_chestplate");
-		itemLimpBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconLeggings, armorMaterialLimpBacon,  0, 2, 4, 0.5F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_leggings");
-		itemLimpBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconBoots, armorMaterialLimpBacon,  0, 3, 4, 0.5F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_boots");
+		itemLimpBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconHelmet, armorMaterialLimpBacon, "limp", 0, 0, 4, 0.5F).func_111206_d("bashpack:limp_helmet").setUnlocalizedName("limp_helmet").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconChestplate, armorMaterialLimpBacon, "limp", 0, 1, 5, 0.6F).func_111206_d("bashpack:limp_chestplate").setUnlocalizedName("limp_chestplate").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconLeggings, armorMaterialLimpBacon, "limp", 0, 2, 4, 0.5F).func_111206_d("bashpack:limp_leggings").setUnlocalizedName("limp_leggings").setCreativeTab(tabBashPackBacon);
+		itemLimpBaconBoots 			= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_LimpBaconBoots, armorMaterialLimpBacon, "limp", 0, 3, 4, 0.5F).func_111206_d("bashpack:limp_boots").setUnlocalizedName("limp_boots").setCreativeTab(tabBashPackBacon);
 
-		itemCrispyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconHelmet, armorMaterialCrispyBacon,  0, 0, 8, 0.7F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("helmet");
-		itemCrispyBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconChestplate, armorMaterialCrispyBacon,  0, 1, 9, 0.9F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("chestplate");
-		itemCrispyBaconLeggings 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconLeggings, armorMaterialCrispyBacon,  0, 2, 8, 0.7F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("leggings");
-		itemCrispyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconBoots, armorMaterialCrispyBacon,  0, 3, 8, 0.7F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("boots");
+		itemCrispyBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconHelmet, armorMaterialCrispyBacon, "crispy", 0, 0, 8, 0.7F).func_111206_d("bashpack:crispy_helmet").setUnlocalizedName("crispy_helmet").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconChestplate, armorMaterialCrispyBacon, "crispy", 0, 1, 9, 0.9F).func_111206_d("bashpack:crispy_chestplate").setUnlocalizedName("crispy_chestplate").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconLeggings 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconLeggings, armorMaterialCrispyBacon, "crispy", 0, 2, 8, 0.7F).func_111206_d("bashpack:crispy_leggings").setUnlocalizedName("crispy_leggings").setCreativeTab(tabBashPackBacon);
+		itemCrispyBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_CrispyBaconBoots, armorMaterialCrispyBacon, "crispy", 0, 3, 8, 0.7F).func_111206_d("bashpack:crispy_boots").setUnlocalizedName("crispy_boots").setCreativeTab(tabBashPackBacon);
 
-		itemBurntBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconHelmet, armorMaterialBurntBacon,  0, 0, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("helmet");
-		itemBurntBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconChestplate, armorMaterialBurntBacon,  0, 1, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("chestplate");
-		itemBurntBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconLeggings, armorMaterialBurntBacon,  0, 2, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("leggings");
-		itemBurntBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconBoots, armorMaterialBurntBacon,  0, 3, 1, 0.1F).setCreativeTab(tabBashPackBacon).setUnlocalizedName("boots");
+		itemBurntBaconHelmet 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconHelmet, armorMaterialBurntBacon, "burnt", 0, 0, 1, 0.1F).func_111206_d("bashpack:burnt_helmet").setUnlocalizedName("burnt_helmet").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconChestplate 	= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconChestplate, armorMaterialBurntBacon, "burnt", 0, 1, 1, 0.1F).func_111206_d("bashpack:burnt_chestplate").setUnlocalizedName("burnt_chestplate").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconLeggings 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconLeggings, armorMaterialBurntBacon, "burnt", 0, 2, 1, 0.1F).func_111206_d("bashpack:burnt_leggings").setUnlocalizedName("burnt_leggings").setCreativeTab(tabBashPackBacon);
+		itemBurntBaconBoots 		= new ItemEdibleArmor(modPropertiesManager.modProperties.itemID_BurntBaconBoots, armorMaterialBurntBacon, "burnt", 0, 3, 1, 0.1F).func_111206_d("bashpack:burnt_boots").setUnlocalizedName("burnt_boots").setCreativeTab(tabBashPackBacon);
 
 		//Register misc items.
 		itemBarbecueLighter = new ItemBarbecueLighter(modPropertiesManager.modProperties.itemID_BarbecueLighter);
 
 		//Register blocks.
-		blockRawBacon = new Block(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).setCreativeTab(tabBashPackBacon).setUnlocalizedName("raw_bacon_block").setResistance(2.5F).setHardness(1.0F);
-		blockSoggyBacon = new Block(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).setCreativeTab(tabBashPackBacon).setUnlocalizedName("soggy_bacon_block").setResistance(2.5F).setHardness(1.0F);
-		blockLimpBacon = new Block(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).setCreativeTab(tabBashPackBacon).setUnlocalizedName("limp_bacon_block").setResistance(2.5F).setHardness(1.0F);
-		blockCrispyBacon = new Block(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).setCreativeTab(tabBashPackBacon).setUnlocalizedName("crispy_bacon_block").setResistance(2.5F).setHardness(1.0F);
-		blockBurntBacon = new Block(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).setCreativeTab(tabBashPackBacon).setUnlocalizedName("burnt_bacon_block").setResistance(2.5F).setHardness(1.0F);
-		blockBone = new Block(modPropertiesManager.modProperties.blockID_Bone, Material.rock).setCreativeTab(tabBashPackBacon).setUnlocalizedName("bone").setResistance(10.0F).setHardness(1.5F).setStepSound(Block.soundStoneFootstep);
+		blockRawBacon = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_RawBacon, Material.clay).func_111022_d("bashpack:bacon_raw").setUnlocalizedName("raw_bacon_block").setResistance(2.5F).setHardness(1.0F).setCreativeTab(tabBashPackBacon);
+		blockSoggyBacon = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_SoggyBacon, Material.clay).func_111022_d("bashpack:bacon_soggy").setUnlocalizedName("soggy_bacon_block").setResistance(2.5F).setHardness(1.0F).setCreativeTab(tabBashPackBacon);
+		blockLimpBacon = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_LimpBacon, Material.clay).func_111022_d("bashpack:bacon_limp").setUnlocalizedName("limp_bacon_block").setResistance(2.5F).setHardness(1.0F).setCreativeTab(tabBashPackBacon);
+		blockCrispyBacon = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_CrispyBacon, Material.clay).func_111022_d("bashpack:bacon_crispy").setUnlocalizedName("crispy_bacon_block").setResistance(2.5F).setHardness(1.0F).setCreativeTab(tabBashPackBacon);
+		blockBurntBacon = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_BurntBacon, Material.clay).func_111022_d("bashpack:bacon_burnt").setUnlocalizedName("burnt_bacon_block").setResistance(2.5F).setHardness(1.0F).setCreativeTab(tabBashPackBacon);
+		blockBone = new BlockAssetBypass(modPropertiesManager.modProperties.blockID_Bone, Material.rock).func_111022_d("bashpack:bone").setUnlocalizedName("bone").setResistance(10.0F).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setCreativeTab(tabBashPackBacon);
 
 		blockBarbecueFire = new BlockBarbecueFire(modPropertiesManager.modProperties.blockID_BarbecueFire);
 		blockPortal = new BlockPortal(modPropertiesManager.modProperties.blockID_Portal);

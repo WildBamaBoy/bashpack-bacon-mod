@@ -385,8 +385,7 @@ public class BlockBarbecueFire extends BlockFire
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("minecraft:fire_layer_0");
-		this.iconArray = new Icon[] { par1IconRegister.registerIcon("minecraft:fire_layer_0"), par1IconRegister.registerIcon("minecraft:fire_layer_1") };
+		this.iconArray = new Icon[] {par1IconRegister.registerIcon("fire_0"), par1IconRegister.registerIcon("fire_1")};
 	}
 	
 	@SideOnly(Side.CLIENT)
