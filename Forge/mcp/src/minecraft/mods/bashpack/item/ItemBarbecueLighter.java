@@ -1,10 +1,10 @@
-package bashpack.item;
+package mods.bashpack.item;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import bashpack.core.BashPackCore;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

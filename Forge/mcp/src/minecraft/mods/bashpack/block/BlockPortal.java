@@ -1,7 +1,9 @@
-package bashpack.block;
+package mods.bashpack.block;
 
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
+import mods.bashpack.world.TeleporterBashurverse;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -10,8 +12,6 @@ import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import bashpack.core.BashPackCore;
-import bashpack.world.TeleporterBashurverse;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

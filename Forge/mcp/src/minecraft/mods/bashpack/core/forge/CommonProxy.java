@@ -1,4 +1,4 @@
-package bashpack.core.forge;
+package mods.bashpack.core.forge;
 
 public class CommonProxy
 {

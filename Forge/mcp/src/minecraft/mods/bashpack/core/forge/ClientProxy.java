@@ -1,8 +1,8 @@
-package bashpack.core.forge;
+package mods.bashpack.core.forge;
 
+import mods.bashpack.client.render.RenderGiantPig;
+import mods.bashpack.entity.EntityGiantPig;
 import net.minecraft.client.model.ModelPig;
-import bashpack.client.render.RenderGiantPig;
-import bashpack.entity.EntityGiantPig;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 

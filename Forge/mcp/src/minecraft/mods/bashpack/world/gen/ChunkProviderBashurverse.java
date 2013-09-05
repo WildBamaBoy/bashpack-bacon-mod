@@ -1,8 +1,9 @@
-package bashpack.world.gen;
+package mods.bashpack.world.gen;
 
 import java.util.List;
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
@@ -22,7 +23,6 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
-import bashpack.core.BashPackCore;
 
 public class ChunkProviderBashurverse implements IChunkProvider
 {

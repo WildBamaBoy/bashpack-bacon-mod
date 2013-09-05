@@ -7,7 +7,7 @@
  * http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package bashpack.core.io;
+package mods.bashpack.core.io;
 
 import java.io.Serializable;
 

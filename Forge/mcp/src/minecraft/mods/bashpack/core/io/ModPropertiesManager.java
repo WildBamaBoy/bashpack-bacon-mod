@@ -7,7 +7,7 @@
  * http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package bashpack.core.io;
+package mods.bashpack.core.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Properties;
 
-import bashpack.core.BashPackCore;
+import mods.bashpack.core.BashPackCore;
 
 /**
  * Handles reading and writing properties that effect how the entire mod operates.

@@ -1,10 +1,11 @@
-package bashpack.world;
+package mods.bashpack.world;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
@@ -13,7 +14,6 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-import bashpack.core.BashPackCore;
 
 public class TeleporterBashurverse extends Teleporter
 {

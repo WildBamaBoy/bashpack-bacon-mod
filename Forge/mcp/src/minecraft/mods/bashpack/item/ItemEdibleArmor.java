@@ -1,4 +1,4 @@
-package bashpack.item;
+package mods.bashpack.item;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

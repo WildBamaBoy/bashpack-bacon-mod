@@ -1,7 +1,8 @@
-package bashpack.block;
+package mods.bashpack.block;
 
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,7 +11,6 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
-import bashpack.core.BashPackCore;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

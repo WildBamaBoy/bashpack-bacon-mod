@@ -1,12 +1,12 @@
-package bashpack.world.gen;
+package mods.bashpack.world.gen;
 
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import bashpack.core.BashPackCore;
 
 public class WorldGenMinableBashurverse extends WorldGenerator
 {

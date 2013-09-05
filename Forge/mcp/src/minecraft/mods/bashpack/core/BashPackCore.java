@@ -1,4 +1,4 @@
-package bashpack.core;
+package mods.bashpack.core;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -6,6 +6,15 @@ import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import mods.bashpack.block.BlockBarbecueFire;
+import mods.bashpack.block.BlockPortal;
+import mods.bashpack.core.forge.CommonProxy;
+import mods.bashpack.core.io.ModPropertiesManager;
+import mods.bashpack.entity.EntityGiantPig;
+import mods.bashpack.item.ItemBarbecueLighter;
+import mods.bashpack.item.ItemEdibleArmor;
+import mods.bashpack.world.WorldProviderBashurverse;
+import mods.bashpack.world.biomes.BiomeGenBashurverse;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.crash.CrashReport;
@@ -28,20 +37,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
-import bashpack.block.BlockBarbecueFire;
-import bashpack.block.BlockPortal;
-import bashpack.core.forge.CommonProxy;
-import bashpack.core.io.ModPropertiesManager;
-import bashpack.entity.EntityGiantPig;
-import bashpack.item.ItemBarbecueLighter;
-import bashpack.item.ItemEdibleArmor;
-import bashpack.world.WorldProviderBashurverse;
-import bashpack.world.biomes.BiomeGenBashurverse;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
@@ -58,18 +58,18 @@ public class BashPackCore
 	@Instance("bashpack")
 	public static BashPackCore instance;
 
-	@SidedProxy(clientSide="bashpack.core.forge.ClientProxy", serverSide="bashpack.core.forge.CommonProxy")
+	@SidedProxy(clientSide="mods.bashpack.core.forge.ClientProxy", serverSide="mods.bashpack.core.forge.CommonProxy")
 	public static CommonProxy proxy;
 
 	//Creative tab.
 	public CreativeTabs tabBashPackBacon;
 
 	//Materials.
-	private static EnumToolMaterial toolMaterialRawBacon    = EnumHelper.addToolMaterial("RAW_BACON",    0, 16,  2.0F, 0.0F, 15);
-	private static EnumToolMaterial toolMaterialSoggyBacon  = EnumHelper.addToolMaterial("SOGGY_BACON",  1, 100, 2.0F, 0.5F, 5);
-	private static EnumToolMaterial toolMaterialLimpBacon   = EnumHelper.addToolMaterial("LIMP_BACON",   2, 150, 2.0F, 1.0F, 14);
-	private static EnumToolMaterial toolMaterialCrispyBacon = EnumHelper.addToolMaterial("CRISPY_BACON", 3, 250, 3.0F, 1.5F, 10);
-	private static EnumToolMaterial toolMaterialBurntBacon  = EnumHelper.addToolMaterial("BURNT_BACON",  0, 59,  0.0F, 0.0F, 22);
+	private static EnumToolMaterial toolMaterialRawBacon    = EnumHelper.addToolMaterial("RAW_BACON",    0, 16,  2.0F, 1, 15);
+	private static EnumToolMaterial toolMaterialSoggyBacon  = EnumHelper.addToolMaterial("SOGGY_BACON",  1, 100, 2.0F, 2, 5);
+	private static EnumToolMaterial toolMaterialLimpBacon   = EnumHelper.addToolMaterial("LIMP_BACON",   2, 150, 2.0F, 2, 14);
+	private static EnumToolMaterial toolMaterialCrispyBacon = EnumHelper.addToolMaterial("CRISPY_BACON", 3, 250, 3.0F, 3, 10);
+	private static EnumToolMaterial toolMaterialBurntBacon  = EnumHelper.addToolMaterial("BURNT_BACON",  0, 59,  0.0F, 1, 22);
 
 	private static EnumArmorMaterial armorMaterialRawBacon = EnumHelper.addArmorMaterial("RAW_BACON", 5, new int[]{1, 2, 1, 1}, 15);
 	private static EnumArmorMaterial armorMaterialSoggyBacon = EnumHelper.addArmorMaterial("SOGGY_BACON", 7, new int[]{1, 2, 2, 1}, 15);
@@ -155,7 +155,7 @@ public class BashPackCore
 	public String runningDirectory = "";
 	public ModPropertiesManager modPropertiesManager = null;
 
-	@EventHandler
+	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		instance = this;

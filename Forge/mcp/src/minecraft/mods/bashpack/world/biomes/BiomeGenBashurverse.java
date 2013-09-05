@@ -1,9 +1,9 @@
-package bashpack.world.biomes;
+package mods.bashpack.world.biomes;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import bashpack.core.BashPackCore;
 
 public class BiomeGenBashurverse extends BiomeGenBase
 {

@@ -1,4 +1,4 @@
-package bashpack.entity;
+package mods.bashpack.entity;
 
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.item.Item;

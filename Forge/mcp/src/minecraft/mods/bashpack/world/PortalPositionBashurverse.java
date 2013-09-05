@@ -1,4 +1,4 @@
-package bashpack.world;
+package mods.bashpack.world;
 
 import net.minecraft.util.ChunkCoordinates;
 

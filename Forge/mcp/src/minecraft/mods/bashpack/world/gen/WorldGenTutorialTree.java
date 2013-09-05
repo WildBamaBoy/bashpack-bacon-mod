@@ -1,13 +1,13 @@
-package bashpack.world.gen;
+package mods.bashpack.world.gen;
 
 import java.util.Random;
 
+import mods.bashpack.core.BashPackCore;
 import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import bashpack.core.BashPackCore;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenTutorialTree extends WorldGenerator implements IWorldGenerator
