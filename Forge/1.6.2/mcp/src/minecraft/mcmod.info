@@ -1,0 +1,17 @@
+[
+{
+  "modid": "bashpack",
+  "name": "BashPack Bacon Mod",
+  "description": "Delicious bacon goodness!",
+  "version": "1.0.0",
+  "credits": "Minecraftwb (Luclin), Bashur, Rhodox",
+  "logoFile": "/bashpack.png",
+  "mcversion": "1.6.2",
+  "url": "",
+  "updateUrl": "",
+  "authors": [ "WildBamaBoy", "SheWolfDeadly" ],
+  "dependencies": [
+         "mod_MinecraftForge"
+]
+}
+]
