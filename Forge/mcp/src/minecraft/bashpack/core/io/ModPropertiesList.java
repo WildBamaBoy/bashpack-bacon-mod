@@ -77,10 +77,14 @@ public class ModPropertiesList implements Serializable
 	public int itemID_BurntBaconLeggings= 13715;
 	public int itemID_BurntBaconBoots= 13716;
 	
-	public int blockID_RawBacon = 1442;
+	public int itemID_BarbecueLighter = 13717;
+	
+	public int blockID_Bone = 232;
+	public int blockID_RawBacon = 233;
 	public int blockID_SoggyBacon = 1443;
 	public int blockID_LimpBacon= 1444;
 	public int blockID_CrispyBacon= 1445;
 	public int blockID_BurntBacon= 1446;
-	public int blockID_Bone = 1447;
+	public int blockID_BarbecueFire = 1447;
+	public int blockID_Portal = 1448;
 }
