@@ -464,7 +464,11 @@ public class BashPackCore
 				{
 			"B B", "B B", 'B', itemBurntBacon
 				});
-
+		GameRegistry.addRecipe(new ItemStack(itemBarbecueLighter, 1), new Object[]
+				{
+			"  F", " I ", "I  ", 'I', Item.ingotIron, 'F', Item.flintAndSteel
+				});
+		
 		//Add block recipes.
 		GameRegistry.addShapelessRecipe(new ItemStack(itemRawBacon, 9), new Object[]{blockRawBacon});
 		GameRegistry.addShapelessRecipe(new ItemStack(itemSoggyBacon, 9), new Object[]{blockSoggyBacon});
